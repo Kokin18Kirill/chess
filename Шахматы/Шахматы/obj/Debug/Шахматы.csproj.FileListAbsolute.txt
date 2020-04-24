@@ -1,0 +1,7 @@
+C:\Users\Кирилл\source\repos\Шахматы\Шахматы\bin\Debug\Шахматы.exe.config
+C:\Users\Кирилл\source\repos\Шахматы\Шахматы\bin\Debug\Шахматы.exe
+C:\Users\Кирилл\source\repos\Шахматы\Шахматы\bin\Debug\Шахматы.pdb
+C:\Users\Кирилл\source\repos\Шахматы\Шахматы\obj\Debug\Шахматы.csprojAssemblyReference.cache
+C:\Users\Кирилл\source\repos\Шахматы\Шахматы\obj\Debug\Шахматы.csproj.CoreCompileInputs.cache
+C:\Users\Кирилл\source\repos\Шахматы\Шахматы\obj\Debug\Шахматы.exe
+C:\Users\Кирилл\source\repos\Шахматы\Шахматы\obj\Debug\Шахматы.pdb
