@@ -8,7 +8,7 @@ namespace Шахматы
 {
     public static class Logik
     {
-        public static int x=2, y=2;
+        public static int x=5, y=5;
         public static int[] RX = new int[16];
         public static int[] RY = new int[16];
         public static int[] BX = new int[16];
