@@ -192,27 +192,31 @@ namespace Шахматы
             switch (pole[Y, X])
             {
                 case 'п':
-                   
+                    //проверка на сьедание
+                   if (Math.Abs(Y - y + 2) == 1 && Math.Abs(X - x + 2) == 1 && pole[y - 2, x - 2] != ' ')
+                    {
+                        return true;
+                    }
                         //проверка на ход с любого места дальше 2 клеток кроме начального положения, проверка на ход в сторону,проверка на наступание на другую фигуру                   
-                        if (Math.Abs(Y - y+2) > 2 || Math.Abs(X - x+2) != 0 || pole[y, x] != ' ')
+                        if (Math.Abs(Y - y+2) > 2 || Math.Abs(X - x+2) != 0 || pole[y-2, x-2] != ' ')
                         {
 
 
                             Console.SetCursorPosition(12, 2);
                             Console.WriteLine("вы не можете сделать такой ход");
                             Console.SetCursorPosition(12, 3);
-                            Console.WriteLine("Math.Abs(Y - y)" + Math.Abs(Y - y+2) + " Math.Abs(X - x)" + Math.Abs(X - x+2)+" Y "+Y+"  y"+ y+" X"+X+" x"+x);
+                            Console.WriteLine("Math.Abs(Y - y+2)" + Math.Abs(Y - y+2) + " Math.Abs(X - x+2)" + Math.Abs(X - x+2)+" Y "+Y+"  y"+ y+" X"+X+" x"+x);
                             return false;
                         }
                         else
                         {//проверка на ход с начальной позиции на 2 клетки
-                            if (Math.Abs(Y - y+2) == 2 && X <= 7 && Y == 1 || Y == 6 && Math.Abs(X - x+2) == 0 && pole[y, x] == ' ')
+                            if (Math.Abs(Y - y+2) == 2 && X <= 7 && Y == 1 || Y == 6 && Math.Abs(X - x+2) == 0 && pole[y-2, x-2] == ' ')
                             {
                                 return true;
                             }
                             else
                             {//проверка на ход в 1 клетку
-                                if (Math.Abs(Y - y+2) == 1 && Math.Abs(X - x+2) == 0 && pole[y, x] == ' ')
+                                if (Math.Abs(Y - y+2) == 1 && Math.Abs(X - x+2) == 0 && pole[y-2, x-2] == ' ')
                                 {
                                     return true;
                                 }
@@ -221,6 +225,16 @@ namespace Шахматы
                     
                         ;
                     break;
+                case 'л':
+                    if((x-2-X)>=-7&& (x - 2 - X) >= 7&&(y-2-Y)>=0)//передвижение горизонтально
+                    {
+                        for (int i = 0; i < Math.Abs(x - 2 - X); i++)
+                        {
+
+                        }
+                    }
+
+                        ; break;
 
             }
             

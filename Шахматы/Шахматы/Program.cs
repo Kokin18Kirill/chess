@@ -10,7 +10,7 @@ namespace Шахматы
     {
         static void Main(string[] args)
         {
-            int user = 0;
+            int user = 1;
          
 
             int[,] pole2 = new int[8,8];
