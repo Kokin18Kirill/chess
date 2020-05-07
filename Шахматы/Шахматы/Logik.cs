@@ -191,9 +191,9 @@ namespace Шахматы
             Console.SetCursorPosition(x, y);
             switch (pole[Y, X])
             {
-                case 'п':
-                    //проверка на сьедание
-                   if (Math.Abs(Y - y + 2) == 1 && Math.Abs(X - x + 2) == 1 && pole[y - 2, x - 2] != ' ')
+              case 'п':
+                //проверка на сьедание
+            if (Math.Abs(Y - y + 2) == 1 && Math.Abs(X - x + 2) == 1 && pole[y - 2, x - 2] != ' ')
                     {
                         return true;
                     }
@@ -225,6 +225,7 @@ namespace Шахматы
                     
                         ;
                     break;
+           
                 case 'л':
                     Console.SetCursorPosition(12, 2);
                     Console.WriteLine("ладья");
@@ -283,7 +284,23 @@ namespace Шахматы
                     }
 
                         ; break;
+                    //сделать проверку на запрет хода под шах!!!!
+                case 'ц':if ((x - 2 - X) <= 1 && (x - 2 - X) >= -1 && (y - 2 - Y) <= 1 && (y - 2 - Y) >= -1&& pole[y - 2, x - 2] == ' ')//ход короля
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        if((x - 2 - X) <= 1 && (x - 2 - X) >= -1 && (y - 2 - Y) <= 1 && (y - 2 - Y) >= -1 && pole[y - 2, x - 2] != ' ')//сьедание фигуры. необходима проверка на то, чья это фигура!!!
+                        {
+                            return true;
+                        }
+                    }
+                    if ((x - 2 - X) <= 1 && (x - 2 - X) >= -1 && (y - 2 - Y) <= 1 && (y - 2 - Y) >= -1 && pole[y - 2, x - 2] == ' ')
 
+
+
+                        ; break;
             }
             
             return true;
