@@ -296,11 +296,21 @@ namespace Шахматы
                             return true;
                         }
                     }
-                    if ((x - 2 - X) <= 1 && (x - 2 - X) >= -1 && (y - 2 - Y) <= 1 && (y - 2 - Y) >= -1 && pole[y - 2, x - 2] == ' ')
+                    if ((x - 2 - X) > 1 || (x - 2 - X) < -1 || (y - 2 - Y) > 1 || (y - 2 - Y) < -1 && pole[y - 2, x - 2] == ' ')
+                    {
+                        return false;
+                    }
 
 
 
                         ; break;
+                case 'c':
+                    if (1==2)
+                    {
+
+                    }
+
+                    ; break;
             }
             
             return true;
