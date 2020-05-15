@@ -185,47 +185,47 @@ namespace Шахматы
               
         }
 
-        public static bool Figura(char[,] pole,int X,int Y, int user)//int user
+        public static bool Figura(char[,] pole, int X, int Y, int user)//int user
         {//проверка на играка
-            
+
             Console.SetCursorPosition(x, y);
             switch (pole[Y, X])
             {
-              case 'п':
-                //проверка на сьедание
-            if (Math.Abs(Y - y + 2) == 1 && Math.Abs(X - x + 2) == 1 && pole[y - 2, x - 2] != ' ')
+                case 'п':
+                    //проверка на сьедание
+                    if (Math.Abs(Y - y + 2) == 1 && Math.Abs(X - x + 2) == 1 && pole[y - 2, x - 2] != ' ')
                     {
                         return true;
                     }
-                        //проверка на ход с любого места дальше 2 клеток кроме начального положения, проверка на ход в сторону,проверка на наступание на другую фигуру                   
-                        if (Math.Abs(Y - y+2) > 2 || Math.Abs(X - x+2) != 0 || pole[y-2, x-2] != ' ')
+                    //проверка на ход с любого места дальше 2 клеток кроме начального положения, проверка на ход в сторону,проверка на наступание на другую фигуру                   
+                    if (Math.Abs(Y - y + 2) > 2 || Math.Abs(X - x + 2) != 0 || pole[y - 2, x - 2] != ' ')
+                    {
+
+
+                        Console.SetCursorPosition(12, 2);
+                        Console.WriteLine("вы не можете сделать такой ход");
+                        Console.SetCursorPosition(12, 3);
+                        Console.WriteLine("Math.Abs(Y - y+2)" + Math.Abs(Y - y + 2) + " Math.Abs(X - x+2)" + Math.Abs(X - x + 2) + " Y " + Y + "  y" + y + " X" + X + " x" + x);
+                        return false;
+                    }
+                    else
+                    {//проверка на ход с начальной позиции на 2 клетки
+                        if (Math.Abs(Y - y + 2) == 2 && X <= 7 && Y == 1 || Y == 6 && Math.Abs(X - x + 2) == 0 && pole[y - 2, x - 2] == ' ')
                         {
-
-
-                            Console.SetCursorPosition(12, 2);
-                            Console.WriteLine("вы не можете сделать такой ход");
-                            Console.SetCursorPosition(12, 3);
-                            Console.WriteLine("Math.Abs(Y - y+2)" + Math.Abs(Y - y+2) + " Math.Abs(X - x+2)" + Math.Abs(X - x+2)+" Y "+Y+"  y"+ y+" X"+X+" x"+x);
-                            return false;
+                            return true;
                         }
                         else
-                        {//проверка на ход с начальной позиции на 2 клетки
-                            if (Math.Abs(Y - y+2) == 2 && X <= 7 && Y == 1 || Y == 6 && Math.Abs(X - x+2) == 0 && pole[y-2, x-2] == ' ')
+                        {//проверка на ход в 1 клетку
+                            if (Math.Abs(Y - y + 2) == 1 && Math.Abs(X - x + 2) == 0 && pole[y - 2, x - 2] == ' ')
                             {
                                 return true;
                             }
-                            else
-                            {//проверка на ход в 1 клетку
-                                if (Math.Abs(Y - y+2) == 1 && Math.Abs(X - x+2) == 0 && pole[y-2, x-2] == ' ')
-                                {
-                                    return true;
-                                }
-                            }
                         }
-                    
+                    }
+
                         ;
                     break;
-           
+
                 case 'л':
                     Console.SetCursorPosition(12, 2);
                     Console.WriteLine("ладья");
@@ -236,19 +236,19 @@ namespace Шахматы
                     else
                         n = 1;
 
-                    if ((x-2-X)>=-7|| (x - 2 - X) >= 7&&(y-2-Y)==0 &&pole[y-2,x-2]==' ')//передвижение горизонтально
+                    if ((x - 2 - X) >= -7 || (x - 2 - X) >= 7 && (y - 2 - Y) == 0 && pole[y - 2, x - 2] == ' ')//передвижение горизонтально
                     {
                         Console.SetCursorPosition(12, 3);
                         Console.WriteLine("горизонт");
                         for (int i = 1; i < Math.Abs(x - 2 - X); i++)
                         {
-                            if(pole[Y,X+(i*n)]!=' ')
+                            if (pole[Y, X + (i * n)] != ' ')
                             {
                                 return false;
                             }
-                            
+
                         }
-                       
+
                     }
                     else
                     {
@@ -258,15 +258,15 @@ namespace Шахматы
                         }
 
                     }
-                    if((y - 2 - Y) >= -7 || (y - 2 - Y) >= 7 && (x - 2 - X) == 0 && pole[y - 2, x - 2] == ' ')//передвижение вертикально
+                    if ((y - 2 - Y) >= -7 || (y - 2 - Y) >= 7 && (x - 2 - X) == 0 && pole[y - 2, x - 2] == ' ')//передвижение вертикально
                     {
                         Console.SetCursorPosition(12, 3);
-                        Console.WriteLine("вертикаль"+ " Math.Abs(y - 2 - Y)"+ Math.Abs(y - 2 - Y));
-                        for (int i = 1; i < Math.Abs(y - 2 - Y)-1; i++)
+                        Console.WriteLine("вертикаль" + " Math.Abs(y - 2 - Y)" + Math.Abs(y - 2 - Y));
+                        for (int i = 1; i < Math.Abs(y - 2 - Y) - 1; i++)
                         {
-                            if (pole[Y-(i*n), X ] != ' ')
+                            if (pole[Y - (i * n), X] != ' ')
                             {
-                                Console.SetCursorPosition(12, 4+i);
+                                Console.SetCursorPosition(12, 4 + i);
                                 Console.WriteLine(pole[Y + i, X]);
                                 return false;
                             }
@@ -284,19 +284,14 @@ namespace Шахматы
                     }
 
                         ; break;
-                    //сделать проверку на запрет хода под шах!!!!
-                case 'ц':if ((x - 2 - X) <= 1 && (x - 2 - X) >= -1 && (y - 2 - Y) <= 1 && (y - 2 - Y) >= -1&& pole[y - 2, x - 2] == ' ')//ход короля
+                //сделать проверку на запрет хода под шах!!!!
+                case 'ц':
+                    if ((x - 2 - X) <= 1 && (x - 2 - X) >= -1 && (y - 2 - Y) <= 1 && (y - 2 - Y) >= -1)//ход короля
                     {
                         return true;
                     }
-                    else
-                    {
-                        if((x - 2 - X) <= 1 && (x - 2 - X) >= -1 && (y - 2 - Y) <= 1 && (y - 2 - Y) >= -1 && pole[y - 2, x - 2] != ' ')//сьедание фигуры. необходима проверка на то, чья это фигура!!!
-                        {
-                            return true;
-                        }
-                    }
-                    if ((x - 2 - X) > 1 || (x - 2 - X) < -1 || (y - 2 - Y) > 1 || (y - 2 - Y) < -1 && pole[y - 2, x - 2] == ' ')
+
+                    if ((x - 2 - X) > 1 || (x - 2 - X) < -1 || (y - 2 - Y) > 1 || (y - 2 - Y) < -1)
                     {
                         return false;
                     }
@@ -304,16 +299,25 @@ namespace Шахматы
 
 
                         ; break;
-                case 'c':
-                    if (1==2)
-                    {
+                case 'с':
 
+                    ; break;
+                case 'к':
+                    if ((Math.Abs(y - 2 - Y) == 1 && Math.Abs(x - 2 - X) == 2) || (Math.Abs(y - 2 - Y) == 2 && Math.Abs(x - 2 - X) == 1))
+                    {
+                        return true;
                     }
+                    else
+                    {
+                        Console.SetCursorPosition(12, 3);
+                        Console.WriteLine("no");
+                        return false;
+                    }
+                    ; break;
+                case 'ф':
 
                     ; break;
             }
-            
-            return true;
         }
     }
 }
